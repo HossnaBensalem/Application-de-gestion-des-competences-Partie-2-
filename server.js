@@ -5,11 +5,10 @@ const cors = require('cors');
 
 const app = express();
 
-// 🔸 Middlewares
 app.use(cors());
 app.use(express.json());
 
-// 🔸 Connexion à MongoDB
+// الاتصال بقاعدة البيانات
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
@@ -20,21 +19,22 @@ mongoose.connect(process.env.MONGO_URI, {
   process.exit(1);
 });
 
-// 🔸 Import des routes
+// استيراد الراوترات
 const renduRoutes = require('./routes/rendu.routes');
 const apprenantRoutes = require('./routes/apprenant.routes');
 
-// 🔸 Utilisation des routes
 app.use('/rendus', renduRoutes);
 app.use('/apprenants', apprenantRoutes);
 
-// 🔸 Route d’accueil
 app.get('/', (req, res) => {
   res.send('Bienvenue dans le service Apprenant 👨‍🎓');
 });
 
-// 🔸 Lancement du serveur
 const PORT = process.env.PORT || 5001;
-app.listen(PORT, () => {
+
+const server = app.listen(PORT, () => {
   console.log(`🚀 Apprenant-Service lancé sur le port ${PORT}`);
 });
+
+// لتصدير app و server للاختبارات
+module.exports = { app, server };
