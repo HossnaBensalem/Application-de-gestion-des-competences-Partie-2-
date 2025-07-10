@@ -2,7 +2,7 @@ const Rendu = require('../models/Rendu');
 const Apprenant = require('../models/Apprenant');
 const axios = require('axios');
 
-// 🔸 Créer un rendu
+
 exports.creerRendu = async (req, res) => {
   try {
     const { briefId, apprenantId, lien } = req.body;
@@ -16,7 +16,7 @@ exports.creerRendu = async (req, res) => {
   }
 };
 
-// 🔸 Lister tous les rendus
+
 exports.listerRendus = async (req, res) => {
   try {
     const rendus = await Rendu.find().populate('apprenantId', 'nom email');
@@ -26,7 +26,7 @@ exports.listerRendus = async (req, res) => {
   }
 };
 
-// 🔸 Voir les rendus d’un apprenant
+//nchof les rendus d’un apprenant
 exports.rendusParApprenant = async (req, res) => {
   try {
     const { apprenantId } = req.params;
@@ -37,7 +37,7 @@ exports.rendusParApprenant = async (req, res) => {
   }
 };
 
-// 🔸 Obtenir les compétences attendues pour un rendu
+// njib les compétences attendues pour un rendu
 exports.getCompetencesDuBrief = async (req, res) => {
   try {
     const { id } = req.params;
@@ -47,7 +47,7 @@ exports.getCompetencesDuBrief = async (req, res) => {
       return res.status(404).json({ success: false, message: 'Rendu non trouvé' });
     }
 
-    // Appeler brief-service pour récupérer le brief et ses compétences
+    // get brief-service pour récupérer le brief et ses compétences
     const briefResponse = await axios.get(`${process.env.BRIEF_SERVICE_URL}/briefs/${rendu.briefId}`);
     const brief = briefResponse.data;
 

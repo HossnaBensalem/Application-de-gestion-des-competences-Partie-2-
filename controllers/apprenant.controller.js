@@ -1,6 +1,6 @@
 const Apprenant = require('../models/Apprenant');
 
-// إنشاء متعلم جديد
+
 exports.creerApprenant = async (req, res) => {
   try {
     const { nom, email } = req.body;
@@ -16,7 +16,7 @@ exports.creerApprenant = async (req, res) => {
   }
 };
 
-// جلب كل المتعلمين
+
 exports.listerApprenants = async (req, res) => {
   try {
     const apprenants = await Apprenant.find();
@@ -26,7 +26,7 @@ exports.listerApprenants = async (req, res) => {
   }
 };
 
-// جلب متعلم بواسطة id
+
 exports.getApprenantById = async (req, res) => {
   try {
     const apprenant = await Apprenant.findById(req.params.id);
@@ -39,7 +39,7 @@ exports.getApprenantById = async (req, res) => {
   }
 };
 
-// تحديث معلومات متعلم
+
 exports.modifierApprenant = async (req, res) => {
   try {
     const { nom, email } = req.body;
@@ -57,7 +57,6 @@ exports.modifierApprenant = async (req, res) => {
   }
 };
 
-// حذف متعلم
 exports.supprimerApprenant = async (req, res) => {
   try {
     const apprenant = await Apprenant.findByIdAndDelete(req.params.id);

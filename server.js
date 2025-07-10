@@ -15,7 +15,7 @@ app.use('/rendus', renduRoutes);
 app.use('/apprenants', apprenantRoutes);
 
 app.get('/', (req, res) => {
-  res.send('Bienvenue dans le service Apprenant 👨‍🎓');
+  res.send('Bienvenue dans le service Apprenant');
 });
 
 module.exports = app;

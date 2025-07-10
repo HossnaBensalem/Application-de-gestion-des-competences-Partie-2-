@@ -1,4 +1,4 @@
-jest.setTimeout(20000); // <== زيادة مدة الانتظار
+jest.setTimeout(20000); 
 
 const request = require('supertest');
 const mongoose = require('mongoose');
@@ -9,7 +9,7 @@ describe('Rendu API', () => {
 
   beforeAll(async () => {
     await mongoose.connect(process.env.MONGO_URI_TEST || 'mongodb://localhost:27017/testDB');
-    server = app.listen(4001); // استخدم منفذ غير المستخدم من التطبيق الأصلي
+    server = app.listen(4001); 
   });
 
   afterAll(async () => {

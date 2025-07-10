@@ -7,7 +7,7 @@ mongoose.connect(process.env.MONGO_URI, {
 
 })
 .then(() => {
-  console.log('✅ Connexion à MongoDB réussie');
+  console.log('Connexion à MongoDB réussie');
   app.listen(PORT, () => {
     console.log(` Apprenant-Service lancé sur le port ${PORT}`);
   });
