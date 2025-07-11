@@ -1,4 +1,4 @@
-FROM node:18
+FROM node:20
 
 WORKDIR /app
 
@@ -7,6 +7,8 @@ RUN npm install
 
 COPY . .
 
+ENV PORT=5001
+
 EXPOSE 5001
 
-CMD ["node", "server.js"]
+CMD ["node", "index.js"]
